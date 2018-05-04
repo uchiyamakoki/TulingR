@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 27
@@ -11,11 +13,19 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -23,7 +33,48 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:27.+'
+    compile 'com.android.support:design:27.1.0'
 
-    compile 'com.squareup.retrofit2:converter-gson:2.0.2' // 用Gson解析json的转换器
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.lguipeng.bubbleview:library:1.0.0'
+    //implementation 'com.lguipeng.bubbleview:library:1.0.0'
+
+    compile'io.reactivex.rxjava2:rxjava:2.0.7'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    // 针对rxjava2.x（adapter-rxjava2的版本要 >= 2.2.0）
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
+
+    compile 'com.jakewharton:butterknife:7.0.1'
+
+    //compile 'com.android.support:appcompat-v7:27.0.2'
+   // compile 'com.android.support:design:27.1.0'
+    //compile 'com.android.support:recyclerview-v7:27.1.0'
+   // compile 'com.android.support:support-v4:27.1.0'
+    //compile 'com.android.support:support-v13:27.1.0'
+
+    //compile 'com.jakewharton:butterknife:8.8.1'
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+   // compile 'com.jakewharton:butterknife:8.0.1'
+    //apt 'com.jakewharton:butterknife-compiler:8.0.1'
+   // compile 'com.jakewharton:butterknife:7.0.1'
+   // compile 'com.orhanobut:logger:2.1.1'
+   // compile 'com.afollestad.material-dialogs:core:0.9.4.4'
+
+   // compile 'de.hdodenhof:circleimageview:2.1.0'
+   // compile 'com.lguipeng.bubbleview:library:1.0.0'
+
+    //compile 'de.devland.esperandro:esperandro-api:2.2.0'
+    //annotationProcessor 'de.devland.esperandro:esperandro:2.2.0'
+   // apt 'de.devland.esperandro:esperandro:2.2.0'
+
+    //compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    //compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    //compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+   // compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    //compile 'com.google.code.gson:gson:2.8.0'
+
+    //compile 'com.umeng.analytics:analytics:6.1.0'
+    //compile 'com.sunfusheng:FirUpdater:1.0.7'
 }
